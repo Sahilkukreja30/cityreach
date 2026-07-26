@@ -112,11 +112,11 @@ export default function Projects() {
                   style={{ textDecoration: 'none', display: 'block' }}
                 >
                   <div className="project-image-placeholder" data-cursor="view" data-cursor-text="VISIT">
-                    <div style={{ textAlign: 'center', padding: '24px' }}>
-                      <span className="shimmer-text" style={{ fontSize: '1.8rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
+                    <div className="project-placeholder-inner">
+                      <span className="shimmer-text project-domain-text">
                         {project.domain.toUpperCase()}
                       </span>
-                      <p style={{ fontSize: '0.75rem', marginTop: '12px', opacity: 0.6, letterSpacing: '0.1em', color: 'var(--text-secondary)' }}>
+                      <p className="project-concept-text">
                         {project.concept.toUpperCase()}
                       </p>
                     </div>
@@ -146,7 +146,7 @@ export default function Projects() {
         </AnimatePresence>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
+      <div className="projects-view-all">
         <Magnetic>
           <button
             onClick={() => setShowAll(!showAll)}

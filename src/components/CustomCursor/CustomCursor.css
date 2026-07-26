@@ -33,3 +33,11 @@
   text-transform: uppercase;
   color: inherit;
 }
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor-ring,
+  .custom-cursor-dot {
+    display: none !important;
+  }
+}
