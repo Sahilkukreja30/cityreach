@@ -1,0 +1,116 @@
+.service-detail-page {
+  padding-top: 140px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.service-detail-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.back-link {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+  transform: translateX(-4px);
+}
+
+.service-detail-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+
+.service-detail-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+.service-detail-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 64px;
+}
+
+.features-section-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.feature-item-card {
+  padding: 32px;
+  border-radius: 0;
+}
+
+.feature-item-title {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+}
+
+.feature-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.service-detail-cta {
+  text-align: center;
+  padding: 64px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-detail-cta h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.service-detail-cta p {
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail-page {
+    padding-top: 100px;
+  }
+}
