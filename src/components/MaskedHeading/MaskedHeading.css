@@ -1,0 +1,61 @@
+.masked-heading-root {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  user-select: none;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  text-wrap: balance;
+  -webkit-font-smoothing: antialiased;
+}
+
+.masked-heading-word {
+  display: inline-block;
+  white-space: pre;
+}
+
+.masked-heading-word:not(:last-child)::after {
+  content: "\00a0";
+}
+
+.masked-heading-base {
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+
+.masked-heading-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.masked-heading-reveal {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.masked-heading-clip-wrap {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.masked-heading-media-container {
+  position: absolute;
+  inset: 0;
+  display: block;
+  will-change: transform, filter;
+}
+
+.masked-heading-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}

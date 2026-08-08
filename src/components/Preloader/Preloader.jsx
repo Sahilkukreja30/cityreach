@@ -2,34 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Preloader.css';
 
-const words = ["Design", "develop", "scale"];
+const words = ["Design", "Build", "Deliver", "Scale"];
 
 export default function Preloader({ onComplete }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     if (index === words.length - 1) {
-      // Leave the final word "scale" visible for 1200ms before revealing the site
+      // Leave the final word "Scale" visible for 900ms before fading out
       const timer = setTimeout(() => {
         onComplete();
-      }, 1200);
+      }, 900);
       return () => clearTimeout(timer);
     }
 
-    // Display each word for 900ms
+    // Display each word for 700ms (increased cycling speed)
     const timer = setTimeout(() => {
       setIndex((prev) => prev + 1);
-    }, 900);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [index, onComplete]);
 
   return (
     <motion.div
-      initial={{ y: 0 }}
+      initial={{ opacity: 1 }}
       exit={{ 
-        y: '-100vh', 
-        transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } 
+        opacity: 0,
+        transition: { duration: 1.8, ease: 'easeInOut' } 
       }}
       className="preloader-container"
     >
@@ -42,7 +42,7 @@ export default function Preloader({ onComplete }) {
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: '0%', opacity: 1 }}
               exit={{ y: '-100%', opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+              transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
               className="preloader-dynamic"
             >
               {words[index]}

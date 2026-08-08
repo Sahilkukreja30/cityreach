@@ -4,7 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 
 // Layout & Global Components
-import CustomCursor from './components/CustomCursor/CustomCursor';
 import Noise from './components/Noise/Noise';
 import Preloader from './components/Preloader/Preloader';
 
@@ -56,7 +55,6 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <CustomCursor />
       <Noise />
 
       <Routes>

@@ -13,6 +13,8 @@
   transition: transform 150ms ease;
   user-select: none;
   text-decoration: none;
+  /* Clip the WebGL FX canvas that expands -20px outside the button */
+  overflow: visible; /* keep visible so glow bleeds out — managed by pointer-events:none */
   
   /* Dynamic styles from props */
   border-radius: var(--sb-radius);

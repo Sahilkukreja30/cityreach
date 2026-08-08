@@ -21,7 +21,7 @@
   align-items: center;
   width: 100%;
   max-width: 600px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(1.8rem, 5.5vw, 3.5rem);
   font-weight: 800;
   letter-spacing: 0.05em;
@@ -49,7 +49,8 @@
 }
 
 .preloader-dynamic {
-  color: var(--accent);
+  color: #8b5cf6; /* Same as aurora */
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.45); /* Subtle aurora glow */
   display: inline-block;
   white-space: nowrap;
   user-select: none;

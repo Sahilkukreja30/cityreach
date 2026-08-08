@@ -35,7 +35,7 @@ export default function ParticleText({ text = "CITYREACH" }) {
       // Offscreen canvas for scanning
       const offscreenCanvas = document.createElement('canvas');
       const offscreenCtx = offscreenCanvas.getContext('2d');
-      
+
       offscreenCanvas.width = baseWidth;
       offscreenCanvas.height = baseHeight;
 
@@ -52,20 +52,20 @@ export default function ParticleText({ text = "CITYREACH" }) {
       let fontSize = 140;
       offscreenCtx.font = `900 ${fontSize}px 'Inter', sans-serif`;
       let textWidth = offscreenCtx.measureText(text).width;
-      
+
       while (textWidth > baseWidth * 0.95 && fontSize > 20) {
         fontSize -= 5;
         offscreenCtx.font = `900 ${fontSize}px 'Inter', sans-serif`;
         textWidth = offscreenCtx.measureText(text).width;
       }
-      
+
       offscreenCtx.fillText(text, baseWidth / 2, baseHeight / 2);
 
       // Scan pixels
       const imgData = offscreenCtx.getImageData(0, 0, baseWidth, baseHeight);
       const data = imgData.data;
-      
-      const step = 2.5; 
+
+      const step = 2.5;
       const color = "#ffffff"; // Pure white
 
       particles = [];
@@ -74,11 +74,11 @@ export default function ParticleText({ text = "CITYREACH" }) {
           const alpha = data[(Math.floor(y) * baseWidth + Math.floor(x)) * 4 + 3];
           if (alpha > 128) {
             const size = 2.5;
-            
+
             // Initialize scattered positions strictly across the actual screen viewport
             const startX = Math.random() * window.innerWidth;
             const startY = Math.random() * window.innerHeight;
-            
+
             particles.push({
               homeX: x,
               homeY: y,
@@ -90,9 +90,9 @@ export default function ParticleText({ text = "CITYREACH" }) {
               size,
               density: Math.random() * 25 + 15,
               // Soft return force so they drift further before easing back
-              ease: Math.random() * 0.015 + 0.02, 
+              ease: Math.random() * 0.015 + 0.02,
               // Higher friction (lower damping) to maintain velocity inertia
-              friction: 0.90, 
+              friction: 0.90,
             });
           }
         }
@@ -163,14 +163,14 @@ export default function ParticleText({ text = "CITYREACH" }) {
         const scaleX = displayWidth / baseWidth;
         const scaleY = displayHeight / baseHeight;
         let scale = Math.min(scaleX, scaleY);
-        
+
         // Restores the original compact text size on desktop and mobile
         if (displayWidth > 768) {
           scale *= 0.58;
         } else {
           scale *= 0.85;
         }
-        
+
         const offsetX = (displayWidth - baseWidth * scale) / 2;
         const offsetY = (displayHeight - baseHeight * scale) / 2;
 
@@ -191,14 +191,14 @@ export default function ParticleText({ text = "CITYREACH" }) {
 
             if (distance < mouse.radius) {
               const force = (mouse.radius - distance) / mouse.radius;
-              
+
               // Angle deviation for chaotic organic dispersion
               const randomAngleOffset = (Math.random() - 0.5) * Math.PI * 0.95;
               const angle = Math.atan2(dy, dx) + randomAngleOffset;
-              
+
               const forceDirectionX = Math.cos(angle);
               const forceDirectionY = Math.sin(angle);
-              
+
               // Strong force vectors
               vx -= forceDirectionX * force * p.density * 1.8;
               vy -= forceDirectionY * force * p.density * 1.8;
