@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import BorderGlow from '../../../components/BorderGlow/BorderGlow';
 import './sections.css';
 
 const servicesData = [
@@ -69,16 +70,29 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8, delay: (index % 3) * 0.1 }}
-            className={`service-card glass ${service.spanClass}`}
+            className={service.spanClass}
           >
-            <div>
-              <div className="service-card-num">{service.num}</div>
-              <h3 className="service-card-title">{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-            </div>
-            <Link to={service.link} className="service-card-link">
-              Know More →
-            </Link>
+            <BorderGlow
+              edgeSensitivity={60}
+              glowColor="40 80 80"
+              backgroundColor="rgba(0, 0, 0, 0.2)"
+              borderRadius={25}
+              glowRadius={20}
+              glowIntensity={0.35}
+              coneSpread={25}
+              animated={true}
+              colors={['#c084fc', '#f472b6', '#38bdf8']}
+              fillOpacity={0.0}
+            >
+              <div>
+                <div className="service-card-num">{service.num}</div>
+                <h3 className="service-card-title">{service.title}</h3>
+                <p className="service-card-desc">{service.desc}</p>
+              </div>
+              <Link to={service.link} className="service-card-link">
+                Know More →
+              </Link>
+            </BorderGlow>
           </motion.div>
         ))}
       </div>

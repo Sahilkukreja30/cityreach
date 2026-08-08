@@ -4,10 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 
 // Layout & Global Components
-import Navbar from './components/Navbar/Navbar';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import Noise from './components/Noise/Noise';
-import CanvasParticles from './components/CanvasParticles/CanvasParticles';
 import Preloader from './components/Preloader/Preloader';
 
 // Pages
@@ -60,8 +58,6 @@ export default function App() {
 
       <CustomCursor />
       <Noise />
-      <CanvasParticles />
-      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />

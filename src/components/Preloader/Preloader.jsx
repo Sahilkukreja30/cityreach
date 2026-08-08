@@ -1,63 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Preloader.css';
 
+const words = ["Design", "develop", "scale"];
+
 export default function Preloader({ onComplete }) {
-  const [progress, setProgress] = useState(0);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            onComplete();
-          }, 200);
-          return 100;
-        }
-        
-        const diff = Math.random() * 20;
-        const next = Math.min(prev + diff, 100);
-        
-        if (next >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            onComplete();
-          }, 200);
-          return 100;
-        }
-        
-        return next;
-      });
-    }, 60);
+    if (index === words.length - 1) {
+      // Leave the final word "scale" visible for 1200ms before revealing the site
+      const timer = setTimeout(() => {
+        onComplete();
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
 
-    return () => clearInterval(timer);
-  }, [onComplete]);
+    // Display each word for 900ms
+    const timer = setTimeout(() => {
+      setIndex((prev) => prev + 1);
+    }, 900);
+
+    return () => clearTimeout(timer);
+  }, [index, onComplete]);
 
   return (
     <motion.div
       initial={{ y: 0 }}
       exit={{ 
         y: '-100vh', 
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+        transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } 
       }}
       className="preloader-container"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="preloader-logo shimmer-text"
-      >
-        CityReach
-      </motion.div>
-
-      <div className="preloader-progress-track">
-        <motion.div
-          className="preloader-progress-bar"
-          animate={{ width: `${progress}%` }}
-          transition={{ ease: 'easeOut', duration: 0.1 }}
-        />
+      <div className="preloader-text-wrapper">
+        <span className="preloader-static">We</span>
+        <span className="preloader-dynamic-wrapper">
+          <AnimatePresence mode="popLayout">
+            <motion.span
+              key={index}
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: '0%', opacity: 1 }}
+              exit={{ y: '-100%', opacity: 0 }}
+              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+              className="preloader-dynamic"
+            >
+              {words[index]}
+            </motion.span>
+          </AnimatePresence>
+        </span>
       </div>
     </motion.div>
   );

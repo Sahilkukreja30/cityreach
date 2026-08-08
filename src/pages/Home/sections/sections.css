@@ -151,7 +151,7 @@ a.btn-secondary:hover {
 
 /* --- ABOUT SECTION --- */
 .about-container {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
   padding: 80px 0;
@@ -333,7 +333,7 @@ a.btn-secondary:hover {
   transition: all 0.3s ease;
 }
 
-.service-card:hover .service-card-link {
+.border-glow-card:hover .service-card-link {
   color: var(--accent);
   border-color: var(--accent);
   padding-right: 8px;
@@ -341,26 +341,26 @@ a.btn-secondary:hover {
 
 /* Grid layout rules for Bento — only applied on large screens */
 @media (min-width: 992px) {
-  .service-card.grid-w-2 {
+  .grid-w-2 {
     grid-column: span 2;
   }
 
-  .service-card.grid-w-3 {
+  .grid-w-3 {
     grid-column: span 3;
   }
 
-  .service-card.grid-w-4 {
+  .grid-w-4 {
     grid-column: span 4;
   }
 
-  .service-card.grid-w-6 {
+  .grid-w-6 {
     grid-column: span 6;
   }
 }
 
 @media (min-width: 600px) and (max-width: 991px) {
   /* On tablets: last wide card (digital management) full width */
-  .service-card.grid-w-6 {
+  .grid-w-6 {
     grid-column: span 2;
   }
 }
@@ -368,7 +368,7 @@ a.btn-secondary:hover {
 /* --- CLIENTS SECTION --- */
 .clients-container {
   padding: 60px 0;
-  background-color: var(--bg-primary);
+  background-color: transparent;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
@@ -398,69 +398,16 @@ a.btn-secondary:hover {
   }
 }
 
-.marquee-container {
-  display: flex;
+.clients-gallery-wrapper {
+  height: 400px;
+  position: relative;
   width: 100%;
-  overflow: hidden;
-}
-
-.marquee-scroller {
-  display: flex;
-  white-space: nowrap;
-}
-
-.client-logo-card {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 110px;
-  margin: 0 10px;
-  background: rgba(14, 14, 16, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  padding: 16px;
-  transition: all 0.4s ease;
-  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
-  .client-logo-card {
-    width: 260px;
-    height: 140px;
-    margin: 0 16px;
-    padding: 24px;
+  .clients-gallery-wrapper {
+    height: 600px;
   }
-}
-
-.client-logo-card:hover {
-  background: rgba(212, 189, 150, 0.03);
-  border-color: rgba(212, 189, 150, 0.2);
-  transform: translateY(-4px);
-}
-
-.client-logo-name {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .client-logo-name {
-    font-size: 1rem;
-  }
-}
-
-.client-logo-subtitle {
-  font-size: 0.65rem;
-  color: var(--text-secondary);
-  margin-top: 4px;
-  opacity: 0.7;
-  text-align: center;
 }
 
 /* --- ENQUIRY SECTION --- */
@@ -833,7 +780,7 @@ a.btn-secondary:hover {
 /* --- PROJECTS SECTION --- */
 .projects-container {
   padding: 80px 0;
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border-top: 1px solid rgba(30, 58, 49, 0.04);
   border-bottom: 1px solid rgba(30, 58, 49, 0.04);
   min-height: auto;

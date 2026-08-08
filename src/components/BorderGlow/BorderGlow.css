@@ -1,0 +1,75 @@
+.border-glow-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 4px 12px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .border-glow-card {
+    min-height: 320px;
+  }
+}
+
+.border-glow-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: rgba(0, 0, 0, 0.4) 0 20px 40px, rgba(255, 255, 255, 0.02) 0 0 15px;
+}
+
+@media (max-width: 767px) {
+  .border-glow-card:hover {
+    transform: none;
+  }
+}
+
+.border-glow-mesh-border {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.border-glow-mesh-fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.border-glow-outer-span {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.border-glow-inner-span {
+  position: absolute;
+  pointer-events: none;
+}
+
+.border-glow-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 28px 24px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .border-glow-inner {
+    padding: 40px;
+  }
+}
