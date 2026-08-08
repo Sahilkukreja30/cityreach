@@ -8,7 +8,8 @@ export default function DarkVeil({
   speed = 1.0,
   scanlineFrequency = 0,
   warpAmount = 0,
-  resolutionScale = 1
+  resolutionScale = 1,
+  overlayColor = '#3A000C' // Set user's requested burgundy red as default tint
 }) {
   const videoRef = useRef(null);
 
@@ -33,6 +34,13 @@ export default function DarkVeil({
         className="dark-veil-video"
       />
       
+      {overlayColor && (
+        <div 
+          className="dark-veil-color-overlay" 
+          style={{ backgroundColor: overlayColor }} 
+        />
+      )}
+
       {noiseIntensity > 0 && (
         <div 
           className="dark-veil-noise" 
