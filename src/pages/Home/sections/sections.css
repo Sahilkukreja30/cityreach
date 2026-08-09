@@ -17,20 +17,15 @@ section {
 
 /* --- HERO SECTION --- */
 .hero-container {
-  padding-top: 0;
+  padding-top: 110px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100svh;
-  overflow: hidden; /* prevent WarpText canvas from causing horizontal scroll */
-  width: 100%;
-  max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .hero-container {
-    padding-top: 0;
+    padding-top: 140px;
   }
 }
 
@@ -119,6 +114,7 @@ a.btn-secondary {
 }
 
 @media (min-width: 768px) {
+
   button.btn-primary,
   button.btn-secondary,
   a.btn-primary,
@@ -188,12 +184,11 @@ a.btn-secondary:hover {
 
 .about-text {
   font-family: var(--font-heading);
-  font-size: clamp(0.95rem, 3vw, 2.5rem);
+  font-size: clamp(1.1rem, 3.5vw, 2.5rem);
   font-weight: 500;
   line-height: 1.45;
   color: var(--text-primary);
   max-width: 1000px;
-  word-break: break-word;
 }
 
 .about-word {
@@ -365,6 +360,7 @@ a.btn-secondary:hover {
 }
 
 @media (min-width: 600px) and (max-width: 991px) {
+
   /* On tablets: last wide card (digital management) full width */
   .grid-w-6 {
     grid-column: span 2;
@@ -405,28 +401,14 @@ a.btn-secondary:hover {
 }
 
 .clients-gallery-wrapper {
-  /* Shorter on mobile so it fits without scrolling */
-  height: 280px;
+  height: 400px;
   position: relative;
   width: 100%;
-  overflow: hidden;
-}
-
-@media (min-width: 480px) {
-  .clients-gallery-wrapper {
-    height: 360px;
-  }
 }
 
 @media (min-width: 768px) {
   .clients-gallery-wrapper {
-    height: 550px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .clients-gallery-wrapper {
-    height: 650px;
+    height: 600px;
   }
 }
 

@@ -14,6 +14,13 @@ import Blogs from './pages/Blogs/Blogs';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [preloaderFinished, setPreloaderFinished] = useState(false);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setPreloaderFinished(true);
+    }
+  }, [isLoading]);
 
   // Initialize Lenis Smooth Scroll
   useEffect(() => {
@@ -58,7 +65,7 @@ export default function App() {
       <Noise />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home preloaderFinished={preloaderFinished} />} />
         <Route path="/:serviceSlug" element={<ServiceDetails />} />
         <Route path="/blogs" element={<Blogs />} />
       </Routes>

@@ -29,15 +29,13 @@ html {
   scrollbar-color: var(--accent) var(--bg-primary);
   scroll-behavior: auto;
   /* Handled by Lenis */
-  overflow-x: hidden; /* Global horizontal overflow guard */
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw; /* Prevent any element from causing horizontal scroll */
+  width: 100vw;
 }
 
 /* Hide default cursor on desktop when custom cursor is active */
@@ -209,19 +207,4 @@ p {
 .loading {
   overflow: hidden;
   height: 100vh;
-}
-
-/* Home page wrapper — main overflow guard */
-.home-page-wrapper {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* WarpText canvas must not cause horizontal scroll */
-.warp-text-root canvas,
-.warp-text-root {
-  max-width: 100%;
-  overflow: hidden;
 }

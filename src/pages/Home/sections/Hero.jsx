@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import WarpText from '../../../components/WarpText/WarpText';
 import SpecularButton from '../../../components/SpecularButton/SpecularButton';
 import DarkVeil from '../../../components/DarkVeil/DarkVeil';
 import './sections.css';
 
-export default function Hero({ onServicesClick }) {
+export default function Hero({ onServicesClick, preloaderFinished }) {
   return (
     <section
       id="hero-section"
@@ -16,13 +15,11 @@ export default function Hero({ onServicesClick }) {
         width: '100%',
         paddingTop: 0,
         paddingBottom: 0,
-        minHeight: '100svh',
+        minHeight: '100vh',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        background: 'transparent',
-        gap: 0,
+        background: 'transparent'
       }}
     >
       {/* DarkVeil Background */}
@@ -36,54 +33,70 @@ export default function Hero({ onServicesClick }) {
         resolutionScale={1}
       />
 
-      {/* Hero WarpText — responsive height via clamp */}
-      <WarpText
-        text="CITYREACH"
-        color="#3b010b"
-        warpStrength={0.12}
-        warpScale={1.5}
-        speed={0.5}
-        pointerInfluence={0.5}
-        pointerStrength={0.55}
-        refraction={0.022}
-        ripple
-        fontSize="clamp(2.5rem, 13vw, 11rem)"
-        fontWeight={900}
-        fontFamily="Inter, Helvetica Neue, sans-serif"
-        letterSpacing="0.06em"
+      {/* Hero Text — White Poppins text fading in slowly after loader finishes */}
+      <div
         style={{
-          width: '100%',
-          maxWidth: '1300px',
-          height: 'clamp(120px, 22vw, 320px)',
+          width: '90%',
+          maxWidth: '1200px',
           zIndex: 2,
-          flexShrink: 0,
-        }}
-      />
-
-      {/* Button sits below text in flow — no absolute positioning to avoid overflow */}
-      <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        style={{
-          zIndex: 5,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 'clamp(32px, 6vw, 64px)',
-          paddingBottom: 'clamp(40px, 8vw, 80px)',
-          flexShrink: 0,
+          textAlign: 'center',
+          minHeight: '120px'
         }}
       >
-        <SpecularButton
-          onClick={onServicesClick}
-          baseColor="#25064c"
-          lineColor="#8b5cf6"
-          style={{ filter: 'hue-rotate(-10deg)' }}
-        >
-          Get Started
-        </SpecularButton>
-      </motion.div>
+        {preloaderFinished && (
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.8, ease: 'easeOut' }}
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: 'clamp(2.5rem, 10vw, 120px)',
+              fontWeight: 800,
+              color: '#ffffff',
+              letterSpacing: '0.12em',
+              lineHeight: 1.1,
+              margin: 0,
+              textTransform: 'uppercase',
+            }}
+          >
+            C I T Y R E A C H
+          </motion.h1>
+        )}
+      </div>
+
+      {/* Button — absolutely pinned to bottom centre of hero, fading in slowly after the text */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 'clamp(28px, 6vh, 60px)',
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 5,
+        }}
+      >
+        {preloaderFinished && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 1.2, ease: 'easeOut' }}
+          >
+            <SpecularButton
+              onClick={onServicesClick}
+              baseColor="#25064c"
+              lineColor="#8b5cf6"
+              style={{ filter: 'hue-rotate(-10deg)' }}
+            >
+              Get Started
+            </SpecularButton>
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }

@@ -3,21 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 220px;
+  min-height: 260px;
   width: 100%;
-  max-width: 100%; /* Never overflow container */
   height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: rgba(0, 0, 0, 0.15) 0 4px 12px;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   isolation: isolate;
   text-decoration: none;
-}
-
-@media (min-width: 480px) {
-  .border-glow-card {
-    min-height: 260px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -71,14 +64,8 @@
   height: 100%;
   position: relative;
   z-index: 2;
-  padding: 20px 16px; /* tighter on mobile */
+  padding: 28px 24px;
   box-sizing: border-box;
-}
-
-@media (min-width: 480px) {
-  .border-glow-inner {
-    padding: 28px 24px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -86,4 +73,3 @@
     padding: 40px;
   }
 }
-

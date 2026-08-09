@@ -13,16 +13,14 @@
   transition: transform 150ms ease;
   user-select: none;
   text-decoration: none;
-  /* Clip the WebGL FX canvas that expands -20px outside the button */
-  overflow: visible; /* keep visible so glow bleeds out — managed by pointer-events:none */
-  
+
   /* Dynamic styles from props */
   border-radius: var(--sb-radius);
   background: color-mix(in srgb, var(--sb-tint) calc(var(--sb-tint-opacity) * 100%), transparent);
   backdrop-filter: blur(var(--sb-blur));
   -webkit-backdrop-filter: blur(var(--sb-blur));
   color: var(--sb-text-color);
-  
+
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 

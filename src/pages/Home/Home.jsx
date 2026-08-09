@@ -7,7 +7,7 @@ import Clients from './sections/Clients';
 import Enquiry from './sections/Enquiry';
 import Contact from './sections/Contact';
 
-export default function Home() {
+export default function Home({ preloaderFinished }) {
   const handleNavClick = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -17,9 +17,10 @@ export default function Home() {
 
   return (
     <div className="home-page-wrapper">
-      <Hero 
+      <Hero
         onServicesClick={() => handleNavClick('services-section')}
         onEnquireClick={() => handleNavClick('enquiry-section')}
+        preloaderFinished={preloaderFinished}
       />
       <About />
       <Services />

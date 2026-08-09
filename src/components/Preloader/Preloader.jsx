@@ -27,9 +27,9 @@ export default function Preloader({ onComplete }) {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ 
+      exit={{
         opacity: 0,
-        transition: { duration: 1.8, ease: 'easeInOut' } 
+        transition: { duration: 1.8, ease: 'easeInOut' }
       }}
       className="preloader-container"
     >
