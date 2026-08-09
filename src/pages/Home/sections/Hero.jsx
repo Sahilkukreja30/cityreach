@@ -51,16 +51,7 @@ export default function Hero({ onServicesClick, preloaderFinished }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.8, ease: 'easeOut' }}
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: 'clamp(2.5rem, 10vw, 120px)',
-              fontWeight: 800,
-              color: '#ffffff',
-              letterSpacing: '0.12em',
-              lineHeight: 1.1,
-              margin: 0,
-              textTransform: 'uppercase',
-            }}
+            className="hero-title-text"
           >
             C I T Y R E A C H
           </motion.h1>
@@ -68,18 +59,7 @@ export default function Hero({ onServicesClick, preloaderFinished }) {
       </div>
 
       {/* Button — absolutely pinned to bottom centre of hero, fading in slowly after the text */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 'clamp(28px, 6vh, 60px)',
-          left: 0,
-          right: 0,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 5,
-        }}
-      >
+      <div className="hero-btn-container">
         {preloaderFinished && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
