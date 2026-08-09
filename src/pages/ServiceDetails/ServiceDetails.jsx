@@ -7,69 +7,69 @@ import './ServiceDetails.css';
 
 const serviceData = {
   'web-designing-indore': {
-    title: 'Web Designing',
+    title: 'Website Design',
     subtitle: 'High-converting digital showrooms that balance premium aesthetics with flawless performance.',
-    intro: 'We build custom, fast-loading websites designed to turn visitors into long-term clients. In Indore, the digital space is crowded. To stand out, you need a website that feels premium, loads instantly, and leads users directly to a conversion. We combine clean editorial aesthetics with modern React technology to build beautiful storefronts.',
+    intro: 'We build custom, fast-loading websites designed to turn visitors into long-term clients. In a crowded digital space, to stand out you need a website that feels premium, loads instantly, and leads users directly to a conversion. We combine clean editorial aesthetics with modern React technology to build beautiful, responsive storefronts.',
     features: [
       { name: 'Custom UI/UX Design', desc: 'Completely tailored visual designs that match your premium branding and outline your identity.' },
       { name: 'Speed & Optimization', desc: 'Ultra-fast load speeds using modern build pipelines and responsive image assets.' },
       { name: 'Mobile Responsive', desc: 'Fluid layouts that scale flawlessly from large monitors to compact smartphones.' },
-      { name: 'SEO & Structured Data', desc: 'Built-in schema markup and semantic tags so Google knows exactly what you sell.' }
+      { name: 'SEO & Structured Data', desc: 'Built-in schema markup and semantic tags so search engines know exactly what you offer.' }
     ]
   },
-  'gmb-optimization-indore': {
-    title: 'GMB Optimization',
-    subtitle: 'Maximizing local search exposure is the fastest way to grow in Indore.',
-    intro: 'If your business is not ranking in the Indore Google Maps Local Pack, you are leaving massive revenue on the table. We optimize your GMB profile to drive direct calls, maps navigation directions, and website visits. We manage your local citations, coordinate reviews, and establish your presence in local directories.',
+  'custom-ecommerce-indore': {
+    title: 'Custom E-commerce Store Design',
+    subtitle: 'Tailored online storefronts built from scratch for maximum conversions and unique customer experiences.',
+    intro: 'Stand out with a fully customized checkout flow, bespoke animations, and layout architectures tailored precisely for your product catalog. We ensure your e-commerce platform scales efficiently under heavy traffic and integrates with key inventory platforms.',
     features: [
-      { name: 'Maps Rank Optimization', desc: 'Optimize reviews, categories, and posts to rank higher in local search maps.' },
-      { name: 'Citation Audit & Sync', desc: 'Sync your name, address, and phone number across the web to build Google authority.' },
-      { name: 'Review Growth Systems', desc: 'Set up systematic templates to acquire high-quality reviews from satisfied customers.' },
-      { name: 'GMB Analytics & Insights', desc: 'Track local phone calls, navigation clicks, and impressions on a simple dashboard.' }
+      { name: 'Bespoke UI/UX Layouts', desc: 'Tailored storefront visual hierarchy for your product lines to maximize brand value.' },
+      { name: 'High-Speed Checkout', desc: 'Optimized multi-step or single-page checkout flows designed to reduce cart abandonment.' },
+      { name: 'Scale & Performance', desc: 'Robust database structures and server setups built to handle high peak traffic seasons.' },
+      { name: 'ERP & CRM Integration', desc: 'Sync customer orders, shipping labels, and accounting logs automatically with backend tools.' }
     ]
   },
-  'seo-services-indore': {
-    title: 'SEO & GEO Dominance',
-    subtitle: 'Ensuring your brand remains visible on Google and new generative AI engines.',
-    intro: 'Traditional search engine optimization is no longer enough. Modern users search via AI platforms like Gemini, ChatGPT, and Perplexity. We specialize in Generative Engine Optimization (GEO) alongside standard SEO, ensuring your business is recommended when users ask complex conversational questions.',
+  'shopify-store-indore': {
+    title: 'Shopify E-commerce Store',
+    subtitle: 'High-converting Shopify stores optimized for speed, search visibility, and seamless conversions.',
+    intro: 'Set up your online store on the world\'s leading e-commerce engine. We build custom Shopify templates, integrate key marketing and sales channels, and coordinate payment gateways so you can start selling immediately.',
     features: [
-      { name: 'AI Search Optimization', desc: 'Optimize website structure and data format to feed generative AI engine scrapers.' },
-      { name: 'Indore Local SEO', desc: 'Optimize for regional search queries, ensuring you capture maximum Indore traffic.' },
-      { name: 'Technical SEO', desc: 'Clean up crawlers errors, broken links, robots.txt, and sitemaps for deep indexing.' },
-      { name: 'Keywords Research', desc: 'Identify high-value, intent-rich search phrases that lead to actual enquiries.' }
+      { name: 'Custom Theme Setup', desc: 'Beautiful custom-designed Shopify themes that reflect your true branding and color palette.' },
+      { name: 'App Integrations', desc: 'Connect key loyalty programs, product reviews, and email marketing apps seamlessly.' },
+      { name: 'Payment Gateway Sync', desc: 'Safe, reliable credit card and local payment gateways setup for global commerce.' },
+      { name: 'Inventory Dashboard', desc: 'Simple backend panel setups to track inventory levels, shipments, and customer data.' }
     ]
   },
-  'meta-ads-indore': {
-    title: 'Meta Ads Management',
-    subtitle: 'Targeted Facebook & Instagram advertising that drives lead generation.',
-    intro: 'Stop boosting posts without tracking conversions. We design data-backed Meta Ads funnels targeting buyers with high intent. We build creative assets, write engaging copies, write custom landing pages, and optimize your pixel event triggers to guarantee the highest possible ROI.',
+  'app-development-indore': {
+    title: 'Android / IOS App Development',
+    subtitle: 'Premium cross-platform mobile applications running smoothly on iOS and Android.',
+    intro: 'Engage your customers directly on their mobile screens. We build high-performance mobile applications using React Native and Flutter, ensuring native-like performance, clean visual layouts, and secure backend integration.',
     features: [
-      { name: 'Advanced Targeting', desc: 'Target local Indore audiences or national markets using demographics and behaviors.' },
-      { name: 'Ad Creative Design', desc: 'Develop beautiful, scrolling-stopping graphics, video assets, and copy.' },
-      { name: 'A/B Split Testing', desc: 'Continuous testing of creatives, headings, and targets to find the best converter.' },
-      { name: 'Retargeting Funnels', desc: 'Re-engage site visitors who left without placing an enquiry, converting them late.' }
+      { name: 'Cross-Platform Apps', desc: 'Write once, run beautifully on both Apple App Store and Google Play.' },
+      { name: 'Secure Authentication', desc: 'Safe user logins, social logins, and encrypted database connections for security.' },
+      { name: 'Push Notifications', desc: 'Direct customer re-engagement funnels directly to user screens for promo drops.' },
+      { name: 'Offline Functionality', desc: 'Ensure key application functions work seamlessly without active internet connection.' }
     ]
   },
-  'smm-indore': {
-    title: 'Social Media Management',
-    subtitle: 'Building a brand narrative that people actually want to follow.',
-    intro: 'Social media is about storytelling. We curate premium visual feeds, plan reels, edit high-quality content, and write copies that reflect your true branding. We ensure your feeds are cohesive, active, and represent the premium stature of your business.',
+  'social-advertising-indore': {
+    title: 'Social Media Advertising',
+    subtitle: 'Targeted campaigns across Facebook, Instagram, and Meta networks driving conversions.',
+    intro: 'Direct traffic that converts. We coordinate end-to-end Meta advertising funnels, build stopping graphics and video ads, write engaging copy, and monitor conversion pixels to maximize your return on ad spend (ROAS).',
     features: [
-      { name: 'Content Styling', desc: 'Curate a luxury grid aesthetic with custom color grading and templates.' },
-      { name: 'Reels Shoots & Editing', desc: 'Help produce high-retention vertical videos to grow organic reach.' },
-      { name: 'Community Care', desc: 'Maintain direct engagement with followers, direct messages, and comments.' },
-      { name: 'Cohesive Strategy', desc: 'Coordinated social campaigns matching your business goals and seasonal promos.' }
+      { name: 'Precision Targeting', desc: 'Target high-intent audiences using regional, demographic, and interest metrics.' },
+      { name: 'Creative Production', desc: 'Produce stops-scrolling graphic and video ads that increase click-through rates.' },
+      { name: 'ROAS Maximization', desc: 'Continuous budget scaling and bids optimization to reduce conversion costs.' },
+      { name: 'Pixel & API Tracking', desc: 'Integrate conversion API and Meta pixels to measure true sales and lead attributions.' }
     ]
   },
-  'digital-management-indore': {
-    title: 'Digital Management',
-    subtitle: 'The ultimate hands-off solution for your brand\'s digital trajectory.',
-    intro: 'We function as your in-house CMO and digital marketing team. We take full ownership of your website development, SEO strategies, local listings, ads budget management, and content creation. You receive regular ROI reports while we drive the digital engine.',
+  'seo-optimization-indore': {
+    title: 'Search Engine Optimisation',
+    subtitle: 'Rank #1 on Google and modern search engines to capture organic search traffic.',
+    intro: 'Organic visibility drives long-term business growth. We audit your technical SEO, optimize metadata and local citations, and write content strategy that establishes high topical authority on Google search and AI engines.',
     features: [
-      { name: 'CMO-on-Demand', desc: 'Direct strategic guidance and resource allocation to maximize digital growth.' },
-      { name: 'End-to-End Execution', desc: 'All-inclusive execution of web edits, search ranking, social channels, and ad accounts.' },
-      { name: 'Clear ROI Reporting', desc: 'No vanity metrics. We report leads, calls, sales, and total customer acquisition costs.' },
-      { name: 'Brand Coherency', desc: 'Ensuring your voice is consistent across SEO pages, socials, newsletters, and ad graphics.' }
+      { name: 'On-Page SEO', desc: 'Optimizing header structures, titles, images, and sitemaps for indexing.' },
+      { name: 'Topical Authority', desc: 'Strategic content creation targeting high-intent buyer keywords to dominate search.' },
+      { name: 'Technical Audits', desc: 'Fixing site speed, crawl errors, structured schema data, and broken redirects.' },
+      { name: 'Local Maps SEO', desc: 'Optimizing business listings and citations to maximize maps search visibility.' }
     ]
   }
 };

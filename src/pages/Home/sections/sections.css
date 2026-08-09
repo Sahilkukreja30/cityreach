@@ -329,6 +329,7 @@ a.btn-secondary:hover {
 }
 
 .service-card-title {
+  font-family: var(--font-body), sans-serif;
   font-size: 1.25rem;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -343,6 +344,7 @@ a.btn-secondary:hover {
 }
 
 .service-card-desc {
+  font-family: var(--font-body), sans-serif;
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -357,22 +359,21 @@ a.btn-secondary:hover {
 }
 
 .service-card-link {
-  font-family: var(--font-heading);
+  font-family: var(--font-body), sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-primary);
-  border-bottom: 1.5px solid var(--text-primary);
+  text-decoration: none; /* Removes default browser link underline */
   width: max-content;
-  padding-bottom: 4px;
   transition: all 0.3s ease;
 }
 
 .border-glow-card:hover .service-card-link {
   color: var(--accent);
-  border-color: var(--accent);
-  padding-right: 8px;
+  padding-left: 4px;
+  text-decoration: none;
 }
 
 /* Grid layout rules for Bento — only applied on large screens */

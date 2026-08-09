@@ -18,8 +18,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-25% 0px -25% 0px" }}
             transition={{ duration: 0.3, delay: (i % 25) * 0.01 }}
-            style={{ 
-              display: 'inline-block', 
+            style={{
+              display: 'inline-block',
               marginRight: '0.22em',
             }}
           >
@@ -33,7 +33,7 @@ export default function About() {
   return (
     <section id="about-section" className="about-container">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-10%" }}
@@ -42,7 +42,7 @@ export default function About() {
         >
           Who are we?
         </motion.h2>
-        
+
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {renderParagraph(p1, 'p1')}
           {renderParagraph(p2, 'p2')}
