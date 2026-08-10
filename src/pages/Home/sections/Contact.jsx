@@ -1,18 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Magnetic from '../../../components/Magnetic/Magnetic';
+import LiquidEther from '../../../components/LiquidEther/LiquidEther';
 import './sections.css';
 
 const PhoneIcon = ({ size = 16, ...props }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} {...props}>
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-  </svg>
-);
-
-const MapPinIcon = ({ size = 16, ...props }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} {...props}>
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-    <circle cx="12" cy="10" r="3"/>
   </svg>
 );
 
@@ -30,6 +25,13 @@ const WhatsAppIcon = ({ size = 16, ...props }) => (
   </svg>
 );
 
+const MailIcon = ({ size = 16, ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} {...props}>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+);
+
 export default function Contact({ onNavClick }) {
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -37,118 +39,122 @@ export default function Contact({ onNavClick }) {
 
   return (
     <footer id="contact-section" className="contact-footer-container">
-      <div className="container">
-        <div className="contact-layout">
-          {/* Left panel - info */}
-          <div className="contact-info-panel">
-            <div>
-              <motion.h2 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="contact-header-title"
-              >
-                Reach Out <br />
-                To Us
-              </motion.h2>
+      {/* LiquidEther WebGL background animation layer */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
+        <LiquidEther
+          colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
 
-              <div className="contact-detail-row">
-                <div className="contact-detail-item">
-                  <label><PhoneIcon size={12} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Inquiries</label>
-                  <p>+971 55 503 7299</p>
-                </div>
-                <div className="contact-detail-item">
-                  <label><MapPinIcon size={12} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Location</label>
-                  <p>UAE | Serving Clients Globally</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="contact-cta-row">
-                <Magnetic>
-                  <a href="tel:+971555037299" className="btn-primary">
-                    Call Now
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <a 
-                    href="https://maps.app.goo.gl/8v35x4gEUt1vG5rQA" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="btn-secondary"
-                  >
-                    Visit Us
-                  </a>
-                </Magnetic>
-              </div>
-
-              <div className="contact-social-row">
-                <label>Connect Via Socials</label>
-                <div className="social-links">
-                  <Magnetic>
-                    <a 
-                      href="https://wa.me/971555037299" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="social-icon-btn"
-                      aria-label="WhatsApp"
-                    >
-                      <WhatsAppIcon size={20} />
-                    </a>
-                  </Magnetic>
-                  <Magnetic>
-                    <a 
-                      href="https://instagram.com/cityreach.ae" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="social-icon-btn"
-                      aria-label="Instagram"
-                    >
-                      <InstagramIcon size={20} />
-                    </a>
-                  </Magnetic>
-                </div>
-              </div>
-            </div>
+      <div className="container" style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}>
+        <div className="footer-grid">
+          {/* Column 1: Brand Info */}
+          <div className="footer-col brand-col">
+            <h2 className="footer-brand-title">
+              CITYREACH <br />
+              DIGITAL
+            </h2>
+            <p className="footer-brand-desc">
+              Premium digital solutions serving clients globally. We build state-of-the-art Web experiences, organic search strategy, and scalable branding assets.
+            </p>
           </div>
 
-          {/* Right panel - Map */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="map-card-wrapper glass"
-          >
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115481.25875249563!2d55.20108399580556!3d25.197201777080517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a6d4963%3A0x8f237b2e8ee7cc0e!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1773412288344!5m2!1sen!2s" 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="CityReach Location Map"
-            />
-          </motion.div>
+          {/* Column 2: Quick Links */}
+          <div className="footer-col">
+            <h3 className="footer-col-title">Quick Links</h3>
+            <ul className="footer-links-list">
+              <li>
+                <button onClick={() => onNavClick('about-section')} className="footer-text-link">
+                  ABOUT US
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavClick('services-section')} className="footer-text-link">
+                  SERVICES
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavClick('enquiry-section')} className="footer-text-link">
+                  ENQUIRE
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavClick('contact-section')} className="footer-text-link">
+                  CONTACT
+                </button>
+              </li>
+              <li>
+                <Link to="/blogs" className="footer-text-link">
+                  BUSINESS BLOGS
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Connect With Us */}
+          <div className="footer-col">
+            <h3 className="footer-col-title">Connect With Us</h3>
+            <div className="footer-social-grid">
+              <Magnetic>
+                <a 
+                  href="https://instagram.com/cityreachdigital" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="footer-social-btn"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={20} />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a 
+                  href="tel:+971555037299" 
+                  className="footer-social-btn"
+                  aria-label="Call Phone"
+                >
+                  <PhoneIcon size={20} />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a 
+                  href="https://wa.me/971555037299" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="footer-social-btn"
+                  aria-label="WhatsApp"
+                >
+                  <WhatsAppIcon size={20} />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a 
+                  href="mailto:hello@cityreachdigital.com" 
+                  className="footer-social-btn"
+                  aria-label="Email"
+                >
+                  <MailIcon size={20} />
+                </a>
+              </Magnetic>
+            </div>
+          </div>
         </div>
 
-        {/* Footer bottom links */}
+        {/* Footer bottom copyright */}
         <div className="footer-bottom">
-          <div className="footer-nav">
-            <button onClick={handleScrollTop} className="footer-nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-              Home
-            </button>
-            <button onClick={() => onNavClick('about-section')} className="footer-nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-              About
-            </button>
-            <button onClick={() => onNavClick('services-section')} className="footer-nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-              Services
-            </button>
-            <button onClick={() => onNavClick('enquiry-section')} className="footer-nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-              Enquire
-            </button>
-          </div>
-
           <p className="footer-copyright">
             &copy; {new Date().getFullYear()} CITYREACH DIGITAL. ALL RIGHTS RESERVED.
           </p>

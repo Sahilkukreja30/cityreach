@@ -1,0 +1,126 @@
+.depth-carousel-container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-height: 320px;
+  width: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  perspective-origin: 50% 50%;
+}
+
+.depth-carousel-container:active {
+  cursor: grabbing;
+}
+
+.depth-carousel-stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.depth-carousel-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #0b0d12;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65), 0 8px 20px -10px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+}
+
+.depth-carousel-img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.depth-carousel-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: multiply;
+}
+
+.depth-carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3000;
+  display: grid;
+  height: 42px;
+  width: 42px;
+  transform: translateY(-50%);
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(18, 20, 26, 0.55);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 200ms, border-color 200ms, transform 200ms;
+  cursor: pointer;
+  outline: none;
+}
+
+.depth-carousel-btn:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(28, 31, 40, 0.85);
+}
+
+.depth-carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.depth-carousel-btn.btn-prev {
+  left: 16px;
+}
+
+.depth-carousel-btn.btn-next {
+  right: 16px;
+}
+
+.depth-carousel-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 3000;
+  display: flex;
+  transform: translateX(-50%);
+  gap: 8px;
+  border-radius: 9999px;
+  background-color: rgba(14, 16, 22, 0.4);
+  padding: 8px 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.depth-carousel-dot {
+  height: 7px;
+  cursor: pointer;
+  border-radius: 9999px;
+  border: none;
+  outline: none;
+  transition: width 250ms, background-color 250ms;
+}
+
+.depth-carousel-dot.is-active {
+  width: 20px;
+  background-color: #ffffff;
+}
+
+.depth-carousel-dot.is-inactive {
+  width: 7px;
+  background-color: rgba(255, 255, 255, 0.3);
+}

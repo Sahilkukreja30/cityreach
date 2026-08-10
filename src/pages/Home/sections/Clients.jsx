@@ -1,34 +1,47 @@
 import React from 'react';
-import CircularGallery from '../../../components/CircularGallery/CircularGallery';
+import Marquee from '../../../components/Marquee/Marquee';
+import ShinyText from '../../../components/ShinyText/ShinyText';
 import './sections.css';
 
 const clientProjects = [
-  { image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80', text: 'TWO BLENDS' },
-  { image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80', text: 'THE B CLUB' },
-  { image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80', text: 'FOLD' },
-  { image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80', text: 'NEEDLE FORM' },
-  { image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80', text: 'VOYA BAKE HOUSE' },
-  { image: 'https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80', text: 'OVERLAY' },
-  { image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80', text: 'HEALTH & WEALTH' },
-  { image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80', text: 'OFELIA' },
-  { image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80', text: 'LD LUXURY' }
+  { image: '/Ghazifoodandcoldstorage.webp', text: 'Ghazi Food & Cold Storage' },
+  { image: '/Hide.webp', text: 'Hide' },
+  { image: '/IlifeClinic.webp', text: 'iLife Clinic' },
+  { image: '/Kaze.webp', text: 'Kaze' },
+  { image: '/NeedleForm.webp', text: 'Needle Form' },
+  { image: '/Overlay.webp', text: 'Overlay' },
+  { image: '/TwoBlends.webp', text: 'Two Blends' },
+  { image: '/fold.webp', text: 'Fold' },
+  { image: '/lucedoroclub.webp', text: "Luce D'oro Club" },
+  { image: '/ofeliaboutique.webp', text: 'Ofelia Boutique' },
+  { image: '/theBClub.webp', text: 'The B Club' },
+  { image: '/thehealthandwealthclub.webp', text: 'The Health & Wealth Club' },
+  { image: '/voyabakehouse.webp', text: 'Voya Bakehouse' }
 ];
 
 export default function Clients() {
+  const half = Math.ceil(clientProjects.length / 2);
+  const row1 = clientProjects.slice(0, half);
+  const row2 = clientProjects.slice(half);
+
   return (
     <section id="clients-section" className="clients-container">
-      <h2 className="clients-title">Trusted By Visionary Brands</h2>
+      <h2 className="clients-title">
+        <ShinyText
+          text="clients who trust us"
+          color="#a1a1aa"
+          shineColor="#8b5cf6"
+          speed={3}
+          spread={120}
+          direction="left"
+        />
+      </h2>
       
       <div className="clients-gallery-wrapper">
-        <CircularGallery
-          items={clientProjects}
-          bend={3}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          scrollEase={0.05}
-          fontUrl="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
-          font="bold 24px Orbitron"
-        />
+        <div className="clients-marquee-rows">
+          <Marquee items={row1} direction="left" duration="28s" />
+          <Marquee items={row2} direction="right" duration="28s" />
+        </div>
       </div>
     </section>
   );

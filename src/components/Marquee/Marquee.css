@@ -1,0 +1,139 @@
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+  position: relative;
+  /* Fade out edges using CSS masks for a premium transition look */
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+/* Animations using translate3d for GPU acceleration */
+@keyframes scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-track.scroll-left {
+  animation: scroll-left var(--duration, 30s) linear infinite;
+}
+
+.marquee-track.scroll-right {
+  animation: scroll-right var(--duration, 30s) linear infinite;
+}
+
+/* Pause scroll when cursor hovers over the track */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-card {
+  width: 220px;
+  height: 160px;
+  background-color: transparent;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.marquee-card:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.marquee-img {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  padding: 16px;
+  user-select: none;
+}
+
+.marquee-brand-name {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.65;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  margin-top: 6px;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.marquee-card:hover .marquee-brand-name {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+  .marquee-card {
+    width: 180px;
+    height: 130px;
+    border-radius: 12px;
+  }
+  .marquee-img {
+    height: 90px;
+    padding: 12px;
+  }
+  .marquee-brand-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    margin-top: 4px;
+  }
+  .marquee-track {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-card {
+    width: 140px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  .marquee-img {
+    height: 70px;
+    padding: 8px;
+  }
+  .marquee-brand-name {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    margin-top: 2px;
+  }
+  .marquee-track {
+    gap: 12px;
+  }
+}

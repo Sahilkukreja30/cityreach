@@ -1,0 +1,99 @@
+.drift-wall-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.drift-wall-plane {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.drift-column {
+  position: relative;
+  width: var(--dw-tile-w);
+  margin-right: var(--dw-gap);
+  transform-style: preserve-3d;
+}
+
+.drift-track {
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.drift-tile {
+  position: relative;
+  display: block;
+  flex: none;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  height: calc(var(--dw-tile-h) + var(--dw-gap));
+  transform-style: preserve-3d;
+  text-decoration: none;
+}
+
+.drift-inner {
+  pointer-events: none;
+  position: absolute;
+  top: calc(var(--dw-gap) / 2);
+  left: calc(var(--dw-gap) / 2);
+  right: calc(var(--dw-gap) / 2);
+  bottom: calc(var(--dw-gap) / 2);
+  display: block;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: var(--dw-radius);
+  opacity: var(--dw-dim);
+  transform: translateZ(0);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), 
+              opacity 420ms cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drift-tile.is-active .drift-inner,
+.drift-tile:focus-visible .drift-inner {
+  opacity: 1;
+  transform: translateZ(var(--dw-lift));
+  box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.7);
+}
+
+.drift-img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  object-fit: contain;
+  padding: 18px;
+  filter: grayscale(var(--dw-gray)) saturate(0.92);
+  transition: filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drift-tile.is-active .drift-img,
+.drift-tile:focus-visible .drift-img {
+  filter: grayscale(0) saturate(1.05);
+}
+
+.drift-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-color: var(--dw-overlay);
+  opacity: 0.42;
+  transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drift-tile.is-active .drift-overlay,
+.drift-tile:focus-visible .drift-overlay {
+  opacity: 0;
+}
