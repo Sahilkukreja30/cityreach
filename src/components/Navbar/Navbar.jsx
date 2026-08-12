@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Magnetic from '../Magnetic/Magnetic';
+import { useCountry } from '../../hooks/useCountry';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -8,6 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const country = useCountry();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,20 +22,22 @@ export default function Navbar() {
   const handleNavClick = (sectionId) => {
     setMobileOpen(false);
     
-    if (location.pathname === '/') {
+    const isHomePage = location.pathname === '/' || location.pathname === '/in' || location.pathname === '/ae';
+    if (isHomePage) {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
       // Redirect home and pass target section in state
-      navigate('/', { state: { scrollTo: sectionId } });
+      navigate(`/${country}`, { state: { scrollTo: sectionId } });
     }
   };
 
   // Smooth scroll after navigation from another page
   useEffect(() => {
-    if (location.pathname === '/' && location.state?.scrollTo) {
+    const isHomePage = location.pathname === '/' || location.pathname === '/in' || location.pathname === '/ae';
+    if (isHomePage && location.state?.scrollTo) {
       const targetId = location.state.scrollTo;
       // Slight timeout to let DOM render
       const timer = setTimeout(() => {
@@ -42,16 +46,16 @@ export default function Navbar() {
           element.scrollIntoView({ behavior: 'smooth' });
         }
         // Reset navigation state to avoid re-triggering on reload
-        navigate('/', { replace: true, state: {} });
+        navigate(`/${country}`, { replace: true, state: {} });
       }, 150);
       return () => clearTimeout(timer);
     }
-  }, [location, navigate]);
+  }, [location, navigate, country]);
 
   return (
     <>
       <nav className={`navbar-container glass-accent ${scrolled ? 'scrolled' : ''}`}>
-        <Link to="/" className="nav-brand shimmer-text" onClick={() => handleNavClick('hero-section')}>
+        <Link to={`/${country}`} className="nav-brand shimmer-text" onClick={() => handleNavClick('hero-section')}>
           CityReach
         </Link>
 
@@ -67,7 +71,7 @@ export default function Navbar() {
             </button>
           </Magnetic>
           <Magnetic>
-            <Link to="/blogs" className="nav-link-item">
+            <Link to={`/${country}/blogs`} className="nav-link-item">
               Insights
             </Link>
           </Magnetic>
@@ -103,7 +107,7 @@ export default function Navbar() {
         <button onClick={() => handleNavClick('services-section')} className="nav-mobile-link">
           Services
         </button>
-        <Link to="/blogs" onClick={() => setMobileOpen(false)} className="nav-mobile-link">
+        <Link to={`/${country}/blogs`} onClick={() => setMobileOpen(false)} className="nav-mobile-link">
           Insights
         </Link>
         <button onClick={() => handleNavClick('contact-section')} className="nav-mobile-link">

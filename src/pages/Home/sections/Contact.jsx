@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Magnetic from '../../../components/Magnetic/Magnetic';
 import LiquidEther from '../../../components/LiquidEther/LiquidEther';
+import { useCountry } from '../../../hooks/useCountry';
 import './sections.css';
 
 const PhoneIcon = ({ size = 16, ...props }) => (
@@ -33,6 +34,8 @@ const MailIcon = ({ size = 16, ...props }) => (
 );
 
 export default function Contact({ onNavClick }) {
+  const country = useCountry();
+
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -61,7 +64,7 @@ export default function Contact({ onNavClick }) {
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}>
-        <div className="footer-grid">
+        <div className={`footer-grid ${country === 'in' ? 'has-location' : ''}`}>
           {/* Column 1: Brand Info */}
           <div className="footer-col brand-col">
             <h2 className="footer-brand-title">
@@ -98,7 +101,7 @@ export default function Contact({ onNavClick }) {
                 </button>
               </li>
               <li>
-                <Link to="/blogs" className="footer-text-link">
+                <Link to={`/${country}/blogs`} className="footer-text-link">
                   BUSINESS BLOGS
                 </Link>
               </li>
@@ -122,7 +125,7 @@ export default function Contact({ onNavClick }) {
               </Magnetic>
               <Magnetic>
                 <a 
-                  href="tel:+971555037299" 
+                  href={country === 'in' ? "tel:+919111110422" : "tel:+971555037299"} 
                   className="footer-social-btn"
                   aria-label="Call Phone"
                 >
@@ -131,7 +134,7 @@ export default function Contact({ onNavClick }) {
               </Magnetic>
               <Magnetic>
                 <a 
-                  href="https://wa.me/971555037299" 
+                  href={country === 'in' ? "https://wa.me/919111110422" : "https://wa.me/971555037299"} 
                   target="_blank" 
                   rel="noreferrer" 
                   className="footer-social-btn"
@@ -151,6 +154,35 @@ export default function Contact({ onNavClick }) {
               </Magnetic>
             </div>
           </div>
+
+          {/* Column 4: Location (Only for India) */}
+          {country === 'in' && (
+            <div className="footer-col">
+              <h3 className="footer-col-title">Our Office</h3>
+              <p className="footer-location-text">
+                Shop No. 5, near Arun Bakery,<br />
+                CAT Square, Sahakar Nagar,<br />
+                Indore, MP 452013
+              </p>
+              <a 
+                href="https://maps.app.goo.gl/CzPjPqUosX8J23xz5" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="footer-map-btn"
+              >
+                Open in Maps
+              </a>
+              <div className="footer-map-iframe-container">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1840.787702846985!2d75.81488102298642!3d22.6690954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd476c282071%3A0xa44173c62ac8943c!2sDMH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="DMH Enterprises Location"
+                ></iframe>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Footer bottom copyright */}

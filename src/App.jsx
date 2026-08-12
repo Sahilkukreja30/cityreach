@@ -65,9 +65,22 @@ export default function App() {
       <Noise />
 
       <Routes>
+        {/* Exact Home paths */}
         <Route path="/" element={<Home preloaderFinished={preloaderFinished} />} />
-        <Route path="/:serviceSlug" element={<ServiceDetails />} />
+        <Route path="/in" element={<Home preloaderFinished={preloaderFinished} />} />
+        <Route path="/ae" element={<Home preloaderFinished={preloaderFinished} />} />
+
+        {/* Blogs paths */}
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/in/blogs" element={<Blogs />} />
+        <Route path="/ae/blogs" element={<Blogs />} />
+
+        {/* Service Details paths */}
+        <Route path="/in/:serviceSlug" element={<ServiceDetails />} />
+        <Route path="/ae/:serviceSlug" element={<ServiceDetails />} />
+        
+        {/* Legacy / Fallback Service Details path */}
+        <Route path="/:serviceSlug" element={<ServiceDetails />} />
       </Routes>
     </Router>
   );

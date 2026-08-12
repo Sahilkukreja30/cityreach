@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import BorderGlow from '../../../components/BorderGlow/BorderGlow';
 import GradientText from '../../../components/GradientText/GradientText';
+import { useCountry } from '../../../hooks/useCountry';
 import './sections.css';
 
 const servicesData = [
@@ -51,6 +52,8 @@ const servicesData = [
 ];
 
 export default function Services() {
+  const country = useCountry();
+
   return (
     <section id="services-section" className="services-container container">
       <motion.h2 
@@ -96,7 +99,7 @@ export default function Services() {
                 <h3 className="service-card-title">{service.title}</h3>
                 <p className="service-card-desc">{service.desc}</p>
               </div>
-              <Link to={service.link} className="service-card-link">
+              <Link to={`/${country}${service.link}`} className="service-card-link">
                 Know More →
               </Link>
             </BorderGlow>

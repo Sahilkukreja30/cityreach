@@ -670,6 +670,9 @@ a.btn-secondary:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
   }
+  .footer-grid.has-location {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -677,6 +680,9 @@ a.btn-secondary:hover {
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 64px;
     margin-bottom: 80px;
+  }
+  .footer-grid.has-location {
+    grid-template-columns: 1.4fr 0.8fr 1.2fr 1.2fr;
   }
 }
 
@@ -764,7 +770,8 @@ a.btn-secondary:hover {
 .footer-social-grid {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .footer-social-btn {

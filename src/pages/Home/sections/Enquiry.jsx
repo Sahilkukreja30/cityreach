@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Magnetic from '../../../components/Magnetic/Magnetic';
 import GradientText from '../../../components/GradientText/GradientText';
 import WebThreads from '../../../components/WebThreads/WebThreads';
+import { useCountry } from '../../../hooks/useCountry';
 import './sections.css';
 
 const InstagramIcon = ({ size = 24, ...props }) => (
@@ -53,6 +54,8 @@ const IndiaFlag = ({ size = 24, className = "" }) => (
 );
 
 export default function Enquiry() {
+  const country = useCountry();
+
   return (
     <section id="enquiry-section" className="enquiry-container" style={{ position: 'relative' }}>
       {/* WebThreads WebGL background layer floating behind the card */}
@@ -102,7 +105,15 @@ export default function Enquiry() {
             </GradientText>
           </h2>
           
-          <div className="contact-glass-grid">
+          <div 
+            className="contact-glass-grid"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '24px'
+            }}
+          >
             {/* Instagram Link */}
             <Magnetic>
               <a
@@ -110,6 +121,7 @@ export default function Enquiry() {
                 target="_blank"
                 rel="noreferrer"
                 className="contact-glass-item"
+                style={{ flex: '1 1 260px', maxWidth: '300px' }}
               >
                 <div className="contact-icon-wrapper">
                   <InstagramIcon size={24} />
@@ -120,42 +132,48 @@ export default function Enquiry() {
             </Magnetic>
 
             {/* UAE WhatsApp Link */}
-            <Magnetic>
-              <a
-                href="https://wa.me/971555037299"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-glass-item"
-              >
-                <div className="contact-icon-wrapper">
-                  <div className="flag-overlap-badge">
-                    <UAEFlag size={20} />
+            {country === 'ae' && (
+              <Magnetic>
+                <a
+                  href="https://wa.me/971555037299"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-glass-item"
+                  style={{ flex: '1 1 260px', maxWidth: '300px' }}
+                >
+                  <div className="contact-icon-wrapper">
+                    <div className="flag-overlap-badge">
+                      <UAEFlag size={20} />
+                    </div>
+                    <WhatsAppIcon size={24} />
                   </div>
-                  <WhatsAppIcon size={24} />
-                </div>
-                <span className="contact-platform-label">UAE WhatsApp</span>
-                <span className="contact-platform-value">+971 55 503 7299</span>
-              </a>
-            </Magnetic>
+                  <span className="contact-platform-label">UAE WhatsApp</span>
+                  <span className="contact-platform-value">+971 55 503 7299</span>
+                </a>
+              </Magnetic>
+            )}
 
             {/* India WhatsApp Link */}
-            <Magnetic>
-              <a
-                href="https://wa.me/919111110422"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-glass-item"
-              >
-                <div className="contact-icon-wrapper">
-                  <div className="flag-overlap-badge">
-                    <IndiaFlag size={20} />
+            {country === 'in' && (
+              <Magnetic>
+                <a
+                  href="https://wa.me/919111110422"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-glass-item"
+                  style={{ flex: '1 1 260px', maxWidth: '300px' }}
+                >
+                  <div className="contact-icon-wrapper">
+                    <div className="flag-overlap-badge">
+                      <IndiaFlag size={20} />
+                    </div>
+                    <WhatsAppIcon size={24} />
                   </div>
-                  <WhatsAppIcon size={24} />
-                </div>
-                <span className="contact-platform-label">India WhatsApp</span>
-                <span className="contact-platform-value">+91 91111 10422</span>
-              </a>
-            </Magnetic>
+                  <span className="contact-platform-label">India WhatsApp</span>
+                  <span className="contact-platform-value">+91 91111 10422</span>
+                </a>
+              </Magnetic>
+            )}
           </div>
         </div>
       </motion.div>

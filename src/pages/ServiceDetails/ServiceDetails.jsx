@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Magnetic from '../../components/Magnetic/Magnetic';
+import { useCountry } from '../../hooks/useCountry';
 import './ServiceDetails.css';
 
 const serviceData = {
@@ -29,7 +30,7 @@ const serviceData = {
     ]
   },
   'shopify-store-indore': {
-    title: 'Shopify E-commerce Store',
+    title: 'Shopify E-commerce store',
     subtitle: 'High-converting Shopify stores optimized for speed, search visibility, and seamless conversions.',
     intro: 'Set up your online store on the world\'s leading e-commerce engine. We build custom Shopify templates, integrate key marketing and sales channels, and coordinate payment gateways so you can start selling immediately.',
     features: [
@@ -77,6 +78,7 @@ const serviceData = {
 export default function ServiceDetails() {
   const { serviceSlug } = useParams();
   const navigate = useNavigate();
+  const country = useCountry();
   const data = serviceData[serviceSlug];
 
   useEffect(() => {
@@ -88,13 +90,13 @@ export default function ServiceDetails() {
       <div className="service-detail-page container" style={{ textAlign: 'center' }}>
         <h2 style={{ fontSize: '3rem', textTransform: 'uppercase', marginBottom: '24px' }}>404</h2>
         <p style={{ marginBottom: '32px' }}>Page not found. The service you are looking for does not exist.</p>
-        <Link to="/" className="btn-primary" style={{ textDecoration: 'none' }}>Go Home</Link>
+        <Link to={`/${country}`} className="btn-primary" style={{ textDecoration: 'none' }}>Go Home</Link>
       </div>
     );
   }
 
   const handleEnquireClick = () => {
-    navigate('/', { state: { scrollTo: 'enquiry-section' } });
+    navigate(`/${country}`, { state: { scrollTo: 'enquiry-section' } });
   };
 
   return (
@@ -105,7 +107,7 @@ export default function ServiceDetails() {
       className="service-detail-page container"
     >
       <div className="service-detail-content">
-        <Link to="/" className="back-link">
+        <Link to={`/${country}`} className="back-link">
           <ArrowLeft size={16} /> Back to Home
         </Link>
 
