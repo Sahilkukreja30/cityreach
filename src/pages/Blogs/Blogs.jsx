@@ -96,6 +96,14 @@ export default function Blogs() {
                 </span>
               </div>
 
+              {selectedBlog.image && (
+                <img 
+                  src={selectedBlog.image} 
+                  alt={selectedBlog.title} 
+                  className="blog-detail-banner"
+                />
+              )}
+
               <div className="service-detail-intro" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px' }}>
                 {renderBlogContent(selectedBlog.content)}
               </div>

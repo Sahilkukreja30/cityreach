@@ -40,8 +40,15 @@ export async function fetchBlogs() {
     });
 
     return response.items.map((item) => {
-      const { title, slug, publishedDate, country, shortDescription, content } = item.fields;
+      const { title, slug, publishedDate, country, shortDescription, content, featuredImage, heroImage, image } = item.fields;
       
+      let imageUrl = null;
+      const imgField = featuredImage || heroImage || image;
+      if (imgField && imgField.fields && imgField.fields.file && imgField.fields.file.url) {
+        const url = imgField.fields.file.url;
+        imageUrl = url.startsWith('//') ? `https:${url}` : url;
+      }
+
       const formattedDate = publishedDate
         ? new Date(publishedDate).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -63,6 +70,7 @@ export async function fetchBlogs() {
         desc: shortDescription || '',
         content, // Rich Text document structure
         country: normalizeCountry(country),
+        image: imageUrl,
       };
     });
   } catch (error) {
