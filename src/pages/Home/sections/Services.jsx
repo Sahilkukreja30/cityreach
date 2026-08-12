@@ -9,43 +9,43 @@ import './sections.css';
 const servicesData = [
   {
     num: '01',
-    title: 'Website Design',
-    desc: 'Custom, fast-loading websites designed for your business. We combine premium visuals with clean code to help you attract customers and generate local leads.',
+    title: 'Web Design & Custom Web Development',
+    desc: 'Award-winning web design company building responsive, custom websites and high-converting web applications. We blend premium UI/UX design with clean code to drive organic leads.',
     link: '/web-designing-indore',
     spanClass: 'grid-w-2'
   },
   {
     num: '02',
     title: 'Custom E-commerce Store Design',
-    desc: 'Bespoke online stores built to sell your products. We design custom shopping carts, seamless checkout systems, and secure databases tailored for your brand.',
+    desc: 'Bespoke e-commerce website design and custom ecommerce development solutions. We build secure shopping carts, customized checkout systems, and high-performance databases.',
     link: '/custom-ecommerce-indore',
     spanClass: 'grid-w-2'
   },
   {
     num: '03',
-    title: 'Shopify E-commerce store Store',
-    desc: 'Professional Shopify store setup and customization. We optimize your store for Google search rankings, mobile speed, and higher checkout conversions.',
+    title: 'Shopify E-commerce Store Development',
+    desc: 'Professional Shopify store setup and custom Liquid theme development. We optimize your store for Shopify SEO, mobile page speed, and maximum sales conversions.',
     link: '/shopify-store-indore',
     spanClass: 'grid-w-2'
   },
   {
     num: '04',
-    title: 'Android / IOS App Development',
-    desc: 'High-performance mobile applications for Android and iOS devices. We build fast, secure apps with clean layouts to keep your users engaged.',
+    title: 'Android & iOS App Development',
+    desc: 'Premium mobile app development services building custom iOS and Android apps. We leverage React Native and Flutter for native-like performance and secure APIs.',
     link: '/app-development-indore',
     spanClass: 'grid-w-2'
   },
   {
     num: '05',
-    title: 'Social Media Advertising',
-    desc: 'Paid ad campaigns on Facebook, Instagram, and Meta networks. We handle targeting, creative design, and conversion tracking to increase your business sales.',
+    title: 'Social Media & Paid Advertising',
+    desc: 'Targeted Meta ad campaigns across Facebook, Instagram, and TikTok. We design high-CTR creatives, optimize retargeting funnels, and maximize ROAS.',
     link: '/social-advertising-indore',
     spanClass: 'grid-w-2'
   },
   {
     num: '06',
     title: 'Search Engine Optimisation (SEO)',
-    desc: 'Improving your website visibility on search engines like Google. We optimize site structure, page content, and keywords to attract organic visitors looking for your products or services.',
+    desc: 'Comprehensive SEO optimization services to rank #1 on Google. We handle technical SEO audits, local SEO keywords, link building, and content strategy.',
     link: '/seo-optimization-indore',
     spanClass: 'grid-w-2'
   }

@@ -1,7 +1,6 @@
-import { NextResponse } from 'next/server';
-
 export function middleware(request) {
-  const { pathname } = request.nextUrl;
+  const url = new URL(request.url);
+  const pathname = url.pathname;
 
   // Skip static assets, Vite assets, favicon, sitemap/robots, etc.
   if (
@@ -10,7 +9,7 @@ export function middleware(request) {
     pathname.startsWith('/static') ||
     pathname.startsWith('/assets')
   ) {
-    return NextResponse.next();
+    return; // Returning nothing lets Vercel continue to serve static files
   }
 
   // If path already starts with /in or /ae, do nothing
@@ -18,7 +17,7 @@ export function middleware(request) {
   const hasAePrefix = pathname.startsWith('/ae/') || pathname === '/ae';
 
   if (hasInPrefix || hasAePrefix) {
-    return NextResponse.next();
+    return; // Returning nothing lets Vercel continue to serve static files
   }
 
   // Read the country from Vercel's IP Country header
@@ -26,8 +25,15 @@ export function middleware(request) {
   const locale = country.toUpperCase() === 'IN' ? 'in' : 'ae';
 
   // Construct redirected URL
-  const url = request.nextUrl.clone();
   url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`;
   
-  return NextResponse.redirect(url);
+  // Return a standard 307 redirect using standard Web API Response
+  return new Response(null, {
+    status: 307,
+    headers: {
+      'Location': url.toString()
+    }
+  });
 }
+
+export default middleware;
