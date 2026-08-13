@@ -22,17 +22,6 @@ export default function Hero({ onServicesClick, preloaderFinished }) {
         background: 'transparent'
       }}
     >
-      {/* DarkVeil Background */}
-      <DarkVeil
-        hueShift={-10}
-        noiseIntensity={0}
-        scanlineIntensity={0}
-        speed={1.4}
-        scanlineFrequency={0}
-        warpAmount={0}
-        resolutionScale={1}
-      />
-
       {/* Hero Text — White Poppins text fading in slowly after loader finishes */}
       <div
         style={{

@@ -6,6 +6,7 @@ import Lenis from 'lenis';
 // Layout & Global Components
 import Noise from './components/Noise/Noise';
 import Preloader from './components/Preloader/Preloader';
+import DarkVeil from './components/DarkVeil/DarkVeil';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -39,6 +40,7 @@ export default function App() {
       smoothWheel: true,
       wheelMultiplier: 1.05,
     });
+    window.lenis = lenis;
 
     let rafId;
     function raf(time) {
@@ -50,6 +52,7 @@ export default function App() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      window.lenis = null;
       document.body.classList.remove('loading');
     };
   }, [isLoading]);
@@ -63,6 +66,15 @@ export default function App() {
       </AnimatePresence>
 
       <Noise />
+      <DarkVeil
+        hueShift={-10}
+        noiseIntensity={0}
+        scanlineIntensity={0}
+        speed={1.4}
+        scanlineFrequency={0}
+        warpAmount={0}
+        resolutionScale={1}
+      />
 
       <Routes>
         {/* Exact Home paths */}
@@ -78,7 +90,7 @@ export default function App() {
         {/* Service Details paths */}
         <Route path="/in/:serviceSlug" element={<ServiceDetails />} />
         <Route path="/ae/:serviceSlug" element={<ServiceDetails />} />
-        
+
         {/* Legacy / Fallback Service Details path */}
         <Route path="/:serviceSlug" element={<ServiceDetails />} />
       </Routes>

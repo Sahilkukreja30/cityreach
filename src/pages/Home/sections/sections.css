@@ -578,18 +578,18 @@ a.btn-secondary:hover {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  border: none;
   margin-bottom: 20px;
   color: var(--text-primary);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-glass-item:hover .contact-icon-wrapper {
-  background: rgba(139, 92, 246, 0.08);
-  border-color: #8b5cf6;
+  background: transparent;
+  border: none;
   color: #8b5cf6;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .flag-overlap-badge {
@@ -601,7 +601,7 @@ a.btn-secondary:hover {
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-  border: 1.5px solid #000;
+  border: none;
   display: flex;
 }
 
@@ -646,10 +646,11 @@ a.btn-secondary:hover {
 /* --- CONTACT & FOOTER SECTION --- */
 .contact-footer-container {
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 70px 0 36px 0;
   position: relative;
   overflow: hidden;
+  z-index: 5;
 }
 
 @media (min-width: 768px) {
@@ -778,8 +779,8 @@ a.btn-secondary:hover {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -790,11 +791,24 @@ a.btn-secondary:hover {
 }
 
 .footer-social-btn:hover {
-  background: rgba(139, 92, 246, 0.08);
-  border-color: #8b5cf6;
+  background: transparent;
+  border: none;
   color: #8b5cf6;
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
+.footer-email-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.footer-email-link:hover {
+  color: #8b5cf6;
 }
 
 /* Location Column */

@@ -5,6 +5,7 @@ import Magnetic from '../../components/Magnetic/Magnetic';
 import { useCountry } from '../../hooks/useCountry';
 import { fetchBlogs } from '../../services/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import DarkVeil from '../../components/DarkVeil/DarkVeil';
 import './Blogs.css';
 
 export default function Blogs() {
@@ -61,7 +62,8 @@ export default function Blogs() {
   };
 
   return (
-    <div className="blogs-page">
+    <>
+      <div className="blogs-page">
       <div className="blogs-content">
         <AnimatePresence mode="wait">
           {selectedBlog ? (
@@ -72,8 +74,8 @@ export default function Blogs() {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.5 }}
             >
-              <button 
-                onClick={() => setSelectedBlog(null)} 
+              <button
+                onClick={() => setSelectedBlog(null)}
                 className="back-link"
                 style={{ background: 'none', border: 'none', cursor: 'pointer' }}
               >
@@ -97,9 +99,9 @@ export default function Blogs() {
               </div>
 
               {selectedBlog.image && (
-                <img 
-                  src={selectedBlog.image} 
-                  alt={selectedBlog.title} 
+                <img
+                  src={selectedBlog.image}
+                  alt={selectedBlog.title}
                   className="blog-detail-banner"
                 />
               )}
@@ -150,8 +152,8 @@ export default function Blogs() {
                         <h2 className="featured-post-title">{displayBlogs[0].title}</h2>
                         <p className="featured-post-desc">{displayBlogs[0].desc}</p>
                       </div>
-                      <button 
-                        onClick={() => setSelectedBlog(displayBlogs[0])} 
+                      <button
+                        onClick={() => setSelectedBlog(displayBlogs[0])}
                         className="read-more-btn"
                         style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                       >
@@ -164,8 +166,8 @@ export default function Blogs() {
                   {displayBlogs.length > 1 && (
                     <div className="posts-grid">
                       {displayBlogs.slice(1).map((blog) => (
-                        <div 
-                          key={blog.id} 
+                        <div
+                          key={blog.id}
                           className="post-grid-card glass"
                         >
                           <div>
@@ -176,8 +178,8 @@ export default function Blogs() {
                             <h3 className="post-grid-title">{blog.title}</h3>
                             <p className="post-grid-desc">{blog.desc}</p>
                           </div>
-                          <button 
-                            onClick={() => setSelectedBlog(blog)} 
+                          <button
+                            onClick={() => setSelectedBlog(blog)}
                             className="read-more-btn"
                             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                           >
@@ -198,5 +200,6 @@ export default function Blogs() {
         </AnimatePresence>
       </div>
     </div>
+    </>
   );
 }

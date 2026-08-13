@@ -20,6 +20,13 @@ const WhatsAppIcon = ({ size = 24, ...props }) => (
   </svg>
 );
 
+const MailIcon = ({ size = 24, ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} {...props}>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+);
+
 const UAEFlag = ({ size = 24, className = "" }) => (
   <svg viewBox="0 0 600 300" width={size} height={size / 2} className={className}>
     <rect width="600" height="300" fill="#fff" />
@@ -174,6 +181,21 @@ export default function Enquiry() {
                 </a>
               </Magnetic>
             )}
+
+            {/* Email Link */}
+            <Magnetic>
+              <a
+                href="mailto:hello@cityreachdigital.com"
+                className="contact-glass-item"
+                style={{ flex: '1 1 260px', maxWidth: '300px' }}
+              >
+                <div className="contact-icon-wrapper">
+                  <MailIcon size={24} />
+                </div>
+                <span className="contact-platform-label">Email Us</span>
+                <span className="contact-platform-value">hello@cityreachdigital.com</span>
+              </a>
+            </Magnetic>
           </div>
         </div>
       </motion.div>

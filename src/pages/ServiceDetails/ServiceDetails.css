@@ -33,11 +33,11 @@
 }
 
 .back-link {
-  font-family: var(--font-heading);
+  font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #c084fc;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -48,13 +48,33 @@
 
 .back-link:hover {
   transform: translateX(-4px);
+  color: #e9d5ff;
 }
 
 .service-detail-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
   font-size: clamp(2rem, 8vw, 4.5rem);
   text-transform: uppercase;
   margin-bottom: 14px;
-  line-height: 1.05;
+  line-height: 1.08;
+  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 25%, #c084fc 60%, #9333ea 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: purpleShimmer 6s linear infinite;
+}
+
+@keyframes purpleShimmer {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
 
 @media (min-width: 768px) {
@@ -65,9 +85,9 @@
 
 .service-detail-subtitle {
   font-size: clamp(1rem, 3vw, 1.4rem);
-  color: var(--accent);
-  font-family: var(--font-heading);
-  font-weight: 500;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   margin-bottom: 36px;
   line-height: 1.45;
 }
@@ -79,21 +99,25 @@
 }
 
 .service-detail-intro {
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  line-height: 1.75;
-  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  line-height: 1.8;
+  color: #ffffff;
   margin-bottom: 48px;
 }
 
 @media (min-width: 768px) {
   .service-detail-intro {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: 64px;
   }
 }
 
 .features-section-title {
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  font-weight: 700;
+  color: #e9d5ff;
   text-transform: uppercase;
   margin-bottom: 24px;
 }
@@ -128,6 +152,7 @@
 .feature-item-card {
   padding: 24px 20px;
   border-radius: 0;
+  border-left: 2px solid rgba(192, 132, 252, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -139,9 +164,10 @@
 .feature-item-title {
   font-size: 1rem;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #ffffff;
   margin-bottom: 10px;
-  font-family: var(--font-heading);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -152,9 +178,10 @@
 }
 
 .feature-item-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
 }
 
 .service-detail-cta {
@@ -170,6 +197,11 @@
 }
 
 .service-detail-cta h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: clamp(1.4rem, 5vw, 2rem);
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -182,11 +214,14 @@
 }
 
 .service-detail-cta p {
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 28px;
-  max-width: 480px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
-  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  line-height: 1.65;
 }
 
 @media (min-width: 768px) {

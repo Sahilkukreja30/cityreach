@@ -188,28 +188,7 @@ const DepthCarousel = ({
     return () => ro.disconnect();
   }, [layout]);
 
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    const onWheel = e => {
-      const cfg = cfgRef.current;
-      if (cfg.count < 2) return;
-      e.preventDefault();
-      tweenRef.current?.kill();
-      const raw = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      const delta = e.deltaMode === 1 ? raw * 24 : raw;
-      const step = clamp(delta / (cfg.cardWidth * 0.9), -0.6, 0.6);
-      posRef.current += step;
-      layout(posRef.current);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-      wheelTimerRef.current = setTimeout(() => setFocus(Math.round(posRef.current), true), 130);
-    };
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => {
-      el.removeEventListener('wheel', onWheel);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-    };
-  }, [layout, setFocus]);
+
 
   const onPointerDown = useCallback(e => {
     const cfg = cfgRef.current;
@@ -274,11 +253,13 @@ const DepthCarousel = ({
   );
 
   const onCardClick = useCallback(
-    index => {
+    (index, item) => {
       if (dragRef.current?.moved) return;
-      setFocus(index, true);
+      if (item?.domain) {
+        window.open(`https://${item.domain}`, '_blank', 'noopener,noreferrer');
+      }
     },
-    [setFocus]
+    []
   );
 
   useEffect(() => {
@@ -364,14 +345,55 @@ const DepthCarousel = ({
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${count}`}
             aria-hidden={active !== i}
-            onClick={() => onCardClick(i)}
+            onClick={() => onCardClick(i, item)}
           >
-            <img
-              className="depth-carousel-img"
-              src={item.image}
-              alt={item.alt || ''}
-              draggable={false}
-            />
+            {item.image ? (
+              <img
+                className="depth-carousel-img"
+                src={item.image}
+                alt={item.alt || item.title || ''}
+                draggable={false}
+              />
+            ) : (
+              <div className="depth-carousel-card-placeholder">
+                <div className="placeholder-glow" />
+              </div>
+            )}
+
+            <div className="depth-carousel-card-content">
+              <div className="depth-card-header">
+                {item.num && <span className="depth-card-num">{item.num}</span>}
+                {item.domain && (
+                  <span className="depth-card-domain shimmer-text">
+                    {item.domain.toUpperCase()}
+                  </span>
+                )}
+              </div>
+
+              {item.title && <h3 className="depth-card-title">{item.title}</h3>}
+              {item.concept && <p className="depth-card-concept">{item.concept}</p>}
+              
+              {item.tags && item.tags.length > 0 && (
+                <div className="depth-card-tags">
+                  {item.tags.map((tag, idx) => (
+                    <span key={idx} className="depth-card-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+
+              {item.domain && (
+                <a
+                  href={`https://${item.domain}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="depth-card-link"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Visit Site &rarr;
+                </a>
+              )}
+            </div>
+
             <span
               className="depth-carousel-overlay"
               ref={el => (overlayRefs.current[i] = el)}

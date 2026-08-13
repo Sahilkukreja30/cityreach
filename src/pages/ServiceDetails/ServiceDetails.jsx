@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Magnetic from '../../components/Magnetic/Magnetic';
+import DarkVeil from '../../components/DarkVeil/DarkVeil';
+import Contact from '../Home/sections/Contact';
 import { useCountry } from '../../hooks/useCountry';
 import './ServiceDetails.css';
 
@@ -100,74 +102,77 @@ export default function ServiceDetails() {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="service-detail-page container"
-    >
-      <div className="service-detail-content">
-        <Link to={`/${country}`} className="back-link">
-          <ArrowLeft size={16} /> Back to Home
-        </Link>
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="service-detail-page container"
+      >
+        <div className="service-detail-content">
+          <Link to={`/${country}`} className="back-link">
+            <ArrowLeft size={16} /> Back to Home
+          </Link>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="service-detail-title shimmer-text"
-        >
-          {data.title}
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="service-detail-title"
+          >
+            {data.title}
+          </motion.h1>
 
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="service-detail-subtitle"
-        >
-          {data.subtitle}
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="service-detail-subtitle"
+          >
+            {data.subtitle}
+          </motion.p>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="service-detail-intro"
-        >
-          <p>{data.intro}</p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="service-detail-intro"
+          >
+            <p>{data.intro}</p>
+          </motion.div>
 
-        <h2 className="features-section-title">What We Deliver</h2>
+          <h2 className="features-section-title">What We Deliver</h2>
 
-        <div className="features-grid">
-          {data.features.map((feature, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="feature-item-card glass"
-            >
-              <h3 className="feature-item-title">{feature.name}</h3>
-              <p className="feature-item-desc">{feature.desc}</p>
-            </motion.div>
-          ))}
+          <div className="features-grid">
+            {data.features.map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="feature-item-card glass"
+              >
+                <h3 className="feature-item-title">{feature.name}</h3>
+                <p className="feature-item-desc">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="service-detail-cta glass-accent">
+            <h3>Connect With Our Growth House</h3>
+            <p>
+              Ready to grow your brand's authority, drive conversion, and elevate your search rankings? Connect with our team today.
+            </p>
+            <Magnetic>
+              <button onClick={handleEnquireClick} className="btn-primary">
+                Enquire Now
+              </button>
+            </Magnetic>
+          </div>
         </div>
-
-        <div className="service-detail-cta glass-accent">
-          <h3>Connect With Our Growth House</h3>
-          <p>
-            Ready to grow your brand's authority, drive conversion, and elevate your search rankings? Connect with our team today.
-          </p>
-          <Magnetic>
-            <button onClick={handleEnquireClick} className="btn-primary">
-              Enquire Now
-            </button>
-          </Magnetic>
-        </div>
-      </div>
-    </motion.div>
+      </motion.div>
+      <Contact />
+    </>
   );
 }

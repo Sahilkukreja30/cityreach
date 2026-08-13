@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: transparent;
   color: var(--text-primary);
   overflow-x: hidden;
   width: 100%;
@@ -45,10 +45,15 @@ body {
 }
 
 #root,
-.home-page-wrapper {
+.home-page-wrapper,
+.service-detail-page,
+.blogs-page {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  background: transparent;
 }
 
 img, video, canvas, svg {

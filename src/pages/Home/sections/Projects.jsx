@@ -1,45 +1,46 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import DepthCarousel from '../../../components/DepthCarousel/DepthCarousel';
 import Magnetic from '../../../components/Magnetic/Magnetic';
 import './sections.css';
 
 const selectedProjects = [
   {
     num: '01',
-    title: 'Luxury Fashion E-Commerce',
-    domain: 'healthandwealthclub.com',
-    tags: ['E-Commerce', 'Luxury UI/UX', 'Motion-Driven'],
-    desc: 'A sophisticated e-commerce experience inspired by luxury fashion brands, designed with immersive motion and a seamless shopping journey.',
-    concept: 'Minimal • Elegant • Motion-Driven • Premium UI/UX'
-  },
-  {
-    num: '02',
     title: 'Booking & Ordering Platform',
     domain: 'twoblends.ae',
     tags: ['Integrated POS', 'Web App', 'Conversion-Focused'],
-    desc: 'Create a seamless digital experience for drive-thru ordering and catering bookings through one intuitive platform.',
-    concept: 'Fast, intuitive, and conversion-focused with a clean user experience.'
+    desc: 'A seamless digital experience for drive-thru ordering and catering bookings through one intuitive platform.',
+    concept: 'Fast, intuitive, and conversion-focused drive-thru ordering.'
+  },
+  {
+    num: '02',
+    title: 'Luxury Fashion E-Commerce',
+    domain: 'healthandwealthclub.com',
+    tags: ['E-Commerce', 'Luxury UI/UX', 'Motion-Driven'],
+    desc: 'A sophisticated e-commerce experience inspired by luxury fashion brands, designed with immersive motion and seamless shopping.',
+    concept: 'Minimal • Elegant • Motion-Driven • Premium UI/UX'
   },
   {
     num: '03',
-    title: 'Restaurant Brand Website',
-    domain: 'thebclub.me',
-    tags: ['Mobile-First', 'Restaurant Menu', 'Clean Design'],
-    desc: 'Create a modern website that showcases the brand while providing an elegant, easy-to-navigate digital menu.',
-    concept: 'Minimal, clean, and mobile-first with a premium browsing experience.'
-  },
-  {
-    num: '04',
     title: 'Meta Advertising Campaign',
     domain: 'ofelia.ae',
     tags: ['Meta Ads', 'Lead Generation', 'ROI Focus'],
-    desc: 'Increase brand awareness and generate qualified enquiries through targeted campaigns. Reached over 51K potential customers, generated 518 messaging conversations, and drove 9,129 profile visits.',
+    desc: 'Targeted performance campaigns driving high-intent enquiries and reaching over 51K potential customers.',
     concept: 'Performance-driven advertising targeting high-intent consumers.'
   }
 ];
 
 const allProjectsList = [
   ...selectedProjects,
+  {
+    num: '04',
+    title: 'Restaurant Brand Website',
+    domain: 'thebclub.me',
+    tags: ['Mobile-First', 'Restaurant Menu', 'Clean Design'],
+    desc: 'A modern website that showcases the brand while providing an elegant, easy-to-navigate digital menu.',
+    concept: 'Minimal, clean, and mobile-first digital menu.'
+  },
   {
     num: '05',
     title: 'Minimal Lifestyle Platform',
@@ -53,107 +54,65 @@ const allProjectsList = [
     title: 'Editorial Design Hub',
     domain: 'needleform.com',
     tags: ['Creative Portfolio', 'Syne Typography', 'Analog Grain'],
-    desc: 'A gorgeous online showroom built for a modern textile design house, utilizing smooth transitions and editorial composition.',
+    desc: 'An online showroom built for a modern textile design house, utilizing smooth transitions and editorial composition.',
     concept: 'Warm editorial layout inspired by Monocle and Kinfolk.'
-  },
-  {
-    num: '07',
-    title: 'Artisanal Bakery Site',
-    domain: 'voyabakehouse.ae',
-    tags: ['Local Business', 'Responsive Store', 'Aesthetic UX'],
-    desc: 'High-converting regional landing page designed to attract local walk-in customers and manage custom bakery catering pre-orders.',
-    concept: 'Earthy tones, high-quality typography, and fast page load.'
-  },
-  {
-    num: '08',
-    title: 'Creative Studio Showcase',
-    domain: 'overlay.ae',
-    tags: ['Vite React', 'Canvas Art', 'Interactive Physics'],
-    desc: 'An immersive interactive agency portfolio featuring smooth scrolling physics, constellation node tracks, and spring hover animations.',
-    concept: 'Interactive digital canvas demonstrating state-of-the-art capabilities.'
   }
 ];
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
-  const displayedProjects = showAll ? allProjectsList : selectedProjects;
+  const carouselItems = showAll ? allProjectsList : selectedProjects;
 
   return (
-    <section id="projects-section" className="projects-container container">
+    <section id="projects-section" className="projects-container container" style={{ position: 'relative', zIndex: 5, padding: '80px 0' }}>
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="projects-title"
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontSize: 'clamp(1.8rem, 6vw, 3.5rem)',
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          marginBottom: '48px',
+          color: '#ffffff'
+        }}
       >
         Selected Projects
       </motion.h2>
 
-      <div className="projects-grid">
-        <AnimatePresence initial={false}>
-          {displayedProjects.map((project, index) => (
-            <motion.div
-              key={project.domain}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="project-card-wrapper"
-            >
-              <div className="project-card">
-                {/* Clicking on the placeholder navigates directly to the external site */}
-                <a
-                  href={`https://${project.domain}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-image-placeholder-link"
-                  style={{ textDecoration: 'none', display: 'block' }}
-                >
-                  <div className="project-image-placeholder" data-cursor="view" data-cursor-text="VISIT">
-                    <div className="project-placeholder-inner">
-                      <span className="shimmer-text project-domain-text">
-                        {project.domain.toUpperCase()}
-                      </span>
-                      <p className="project-concept-text">
-                        {project.concept.toUpperCase()}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-
-                <div className="project-tag-row">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="project-tag">{tag}</span>
-                  ))}
-                </div>
-
-                <h3 className="project-card-title">{project.title}</h3>
-                <p className="project-card-desc">{project.desc}</p>
-
-                <a
-                  href={`https://${project.domain}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-card-link"
-                >
-                  Visit Site &rarr;
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+      <div className="projects-carousel-wrapper" style={{ width: '100%', minHeight: '440px', position: 'relative' }}>
+        <DepthCarousel
+          key={showAll ? 'all' : 'selected'}
+          items={carouselItems}
+          cardWidth={300}
+          cardHeight={400}
+          radius={16}
+          tint="#05060a"
+          depth={180}
+          spread={210}
+          tilt={18}
+          perspective={1300}
+          visibleCards={3}
+          loop={true}
+          autoplay={true}
+          autoplayDelay={2000}
+          showControls={true}
+          showIndicators={true}
+        />
       </div>
 
-      <div className="projects-view-all">
+      <div className="projects-view-all" style={{ textAlign: 'center', marginTop: '48px' }}>
         <Magnetic>
           <button
             onClick={() => setShowAll(!showAll)}
             className="btn-secondary"
-            style={{ minWidth: '240px' }}
+            style={{ minWidth: '220px' }}
           >
-            {showAll ? 'Show Less' : 'View All Projects'}
+            {showAll ? 'Show Selected Only' : 'View All Projects'}
           </button>
         </Magnetic>
       </div>

@@ -124,3 +124,116 @@
   width: 7px;
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Custom Depth Carousel Card Content & Typography */
+.depth-carousel-card-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0e0e12 0%, #171720 50%, #090a0e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.depth-carousel-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.95) 100%);
+  pointer-events: auto;
+}
+
+.depth-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.depth-card-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.depth-card-domain {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.depth-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.depth-card-concept {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.depth-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.depth-card-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.depth-card-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.depth-card-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  transform: translateX(4px);
+}

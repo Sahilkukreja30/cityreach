@@ -14,7 +14,11 @@ export default function DarkVeil({
 
   useEffect(() => {
     if (videoRef.current) {
+      videoRef.current.muted = true;
       videoRef.current.playbackRate = speed;
+      videoRef.current.play().catch((err) => {
+        console.log('Video play catch:', err);
+      });
     }
   }, [speed]);
 
